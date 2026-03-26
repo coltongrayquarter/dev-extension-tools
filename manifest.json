@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Dev Magic",
+  "version": "1.0.1",
+  "description": "Inverts light pages with a toggle button and stores history of toggled pages.",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "core/state.js",
+        "core/root.js",
+        "features/darkMode.js",
+        "features/hoverInspect.js",
+        "features/autofill.js",
+        "features/scrapeMode.js",
+        "ui/buttons.js",
+        "ui/panel.js",
+        "main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
