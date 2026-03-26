@@ -14,6 +14,7 @@
         "features/hoverInspect.js",
         "features/autofill.js",
         "features/scrapeMode.js",
+        "features/quickNotes.js",
         "ui/buttons.js",
         "ui/panel.js",
         "main.js"

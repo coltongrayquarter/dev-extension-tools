@@ -1,4 +1,4 @@
-function invertPageColors() {
+const invertPageColors = () => {
   const styleId = 'smart-invert-style';
   if (document.getElementById(styleId)) return;
 
@@ -12,15 +12,15 @@ function invertPageColors() {
     }
   `;
   document.head.appendChild(style);
-}
+};
 
-function removeInvert() {
+const removeInvert = () => {
   const style = document.getElementById('smart-invert-style');
   if (style) style.remove();
   document.documentElement.style.filter = '';
-}
+};
 
-function toggleInvert() {
+const toggleInvert = () => {
   const styleExists = document.getElementById('smart-invert-style');
   const url = location.href;
 
@@ -41,4 +41,4 @@ function toggleInvert() {
       localStorage.setItem('smartInvertHistory', JSON.stringify(history));
     }
   }
-}
+};

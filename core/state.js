@@ -5,4 +5,5 @@ window.smartState = {
   root: null,
   scrapeMode: false,
   scrapeOverlay: null,
+  notesOpen: false,
 };

@@ -1,4 +1,4 @@
-function createHoverUI() {
+const createHoverUI = () => {
   createRoot();
   if (smartState.hoverBox) return;
 
@@ -32,10 +32,10 @@ function createHoverUI() {
 
   smartState.root.appendChild(smartState.highlightOverlay);
   smartState.root.appendChild(smartState.hoverBox);
-}
+};
 
 // Return a short DOM path (up to 5 levels)
-function getDomPath(el) {
+const getDomPath = (el) => {
   let path = [];
   while (el && el.nodeType === 1 && path.length < 5) {
     let name = el.tagName.toLowerCase();
@@ -46,10 +46,10 @@ function getDomPath(el) {
     el = el.parentElement;
   }
   return path.join(' > ');
-}
+};
 
 // Position tooltip near cursor
-function positionTooltip(x, y) {
+const positionTooltip = (x, y) => {
   const pad = 10;
   const box = smartState.hoverBox;
 
@@ -65,12 +65,12 @@ function positionTooltip(x, y) {
 
   box.style.left = left + 'px';
   box.style.top = top + 'px';
-}
+};
 
 // Throttle movement
 let lastMove = 0;
 
-function handleHover(e) {
+const handleHover = (e) => {
   if (!smartState.hoverInspectEnabled) return;
 
   const now = performance.now();
@@ -100,9 +100,9 @@ ${getDomPath(el)}
 `.trim();
 
   positionTooltip(e.clientX, e.clientY);
-}
+};
 
-function toggleHoverInspect() {
+const toggleHoverInspect = () => {
   smartState.hoverInspectEnabled = !smartState.hoverInspectEnabled;
 
   if (smartState.hoverInspectEnabled) {
@@ -123,4 +123,4 @@ function toggleHoverInspect() {
     smartState.highlightOverlay.style.display = smartState.hoverInspectEnabled
       ? 'block'
       : 'none';
-}
+};

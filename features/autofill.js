@@ -1,7 +1,7 @@
 // ===========================
 // AUTOFILL FORM (does not override existing values)
 // ===========================
-function autofillForm() {
+const autofillForm = () => {
   const inputs = document.querySelectorAll('input, textarea, select');
 
   let filledCount = 0;
@@ -32,8 +32,8 @@ function autofillForm() {
   });
 
   alert(`Autofilled ${filledCount} fields!`);
-}
+};
 
-function toggleAutofill() {
+const toggleAutofill = () => {
   autofillForm();
-}
+};

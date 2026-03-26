@@ -1,4 +1,4 @@
-function baseBtnStyle() {
+const baseBtnStyle = () => {
   return {
     padding: '8px 10px',
     borderRadius: '6px',
@@ -10,9 +10,9 @@ function baseBtnStyle() {
     boxShadow: '0 0 8px rgba(0,0,0,0.4)',
     textAlign: 'left',
   };
-}
+};
 
-function makeButton(label, onClick) {
+const makeButton = (label, onClick) => {
   const btn = document.createElement('button');
   btn.textContent = label;
   Object.assign(btn.style, baseBtnStyle());
@@ -23,4 +23,4 @@ function makeButton(label, onClick) {
 
   btn.onclick = onClick;
   return btn;
-}
+};

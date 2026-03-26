@@ -5,7 +5,7 @@ smartState.scrapeMode = false;
 smartState.scrapeOverlay = null;
 
 // Enable scrape mode
-function enableScrapeMode() {
+const enableScrapeMode = () => {
   if (smartState.scrapeMode) return;
   smartState.scrapeMode = true;
 
@@ -24,10 +24,10 @@ function enableScrapeMode() {
   document.addEventListener('mousemove', scrapeMouseMove);
   // Click to scrape
   document.addEventListener('click', scrapeClick, true);
-}
+};
 
 // Disable scrape mode
-function disableScrapeMode() {
+const disableScrapeMode = () => {
   smartState.scrapeMode = false;
   if (smartState.scrapeOverlay) {
     smartState.scrapeOverlay.remove();
@@ -35,10 +35,17 @@ function disableScrapeMode() {
   }
   document.removeEventListener('mousemove', scrapeMouseMove);
   document.removeEventListener('click', scrapeClick, true);
-}
+};
+
+//disable on any right-click
+document.addEventListener('contextmenu', () => {
+  if (smartState.scrapeMode) {
+    disableScrapeMode();
+  }
+});
 
 // Highlight element under mouse
-function scrapeMouseMove(e) {
+const scrapeMouseMove = (e) => {
   if (!smartState.scrapeMode) return;
   const el = e.target;
   const rect = el.getBoundingClientRect();
@@ -48,10 +55,10 @@ function scrapeMouseMove(e) {
     width: rect.width + 'px',
     height: rect.height + 'px',
   });
-}
+};
 
 // On click, scrape only the text
-function scrapeClick(e) {
+const scrapeClick = (e) => {
   e.preventDefault();
   e.stopPropagation();
 
@@ -75,10 +82,10 @@ function scrapeClick(e) {
 
   // Exit scrape mode
   disableScrapeMode();
-}
+};
 
 // Flash outline for visual feedback
-function flashElement(el, color = '#00ffff') {
+const flashElement = (el, color = '#00ffff') => {
   const rect = el.getBoundingClientRect();
   const flash = document.createElement('div');
   Object.assign(flash.style, {
@@ -96,10 +103,10 @@ function flashElement(el, color = '#00ffff') {
   smartState.root.appendChild(flash);
   setTimeout(() => (flash.style.opacity = '0'), 100);
   setTimeout(() => flash.remove(), 500);
-}
+};
 
 // Success popup
-function showScrapeSuccess() {
+const showScrapeSuccess = () => {
   const popup = document.createElement('div');
   popup.textContent = '✅ Text Scraped & Copied!';
   Object.assign(popup.style, {
@@ -119,4 +126,4 @@ function showScrapeSuccess() {
   smartState.root.appendChild(popup);
   setTimeout(() => (popup.style.opacity = '0'), 800);
   setTimeout(() => popup.remove(), 1400);
-}
+};

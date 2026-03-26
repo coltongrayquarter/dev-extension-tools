@@ -1,4 +1,4 @@
-(function init() {
+(() => {
   const url = location.href;
   const history = JSON.parse(
     localStorage.getItem('smartInvertHistory') || '[]'
