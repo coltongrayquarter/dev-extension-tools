@@ -1,3 +1,13 @@
+const destroyPanel = () => {
+  const panel = document.getElementById('smart-panel');
+  if (panel) panel.remove();
+
+  if (smartState.root && smartState.root.childElementCount === 0) {
+    smartState.root.remove();
+    smartState.root = null;
+  }
+};
+
 const createPanel = () => {
   createRoot();
 

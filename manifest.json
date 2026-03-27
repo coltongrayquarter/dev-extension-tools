@@ -4,6 +4,10 @@
   "version": "1.0.1",
   "description": "Inverts light pages with a toggle button and stores history of toggled pages.",
   "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_title": "Dev Magic",
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -16,7 +20,6 @@
         "features/scrapeMode.js",
         "features/quickNotes.js",
         "ui/buttons.js",
-        "ui/panel.js",
         "main.js"
       ],
       "run_at": "document_idle"
