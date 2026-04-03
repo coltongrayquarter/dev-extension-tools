@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Magic</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <h1>Dev Magic</h1>
+      <p class="subtitle">Run tools on the active tab</p>
+
+      <button data-action="SMART_ACTION_COPY_TEXT_MODE">Copy Text</button>
+      <button data-action="SMART_ACTION_TOGGLE_DARK_MODE">Dark Mode</button>
+      <button data-action="SMART_ACTION_TOGGLE_HOVER_INSPECT">Hover Inspect</button>
+      <button data-action="SMART_ACTION_AUTOFILL">Autofill Form</button>
+      <button data-action="SMART_ACTION_NOTES">Notes</button>
+
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
